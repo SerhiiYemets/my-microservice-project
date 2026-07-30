@@ -15,7 +15,8 @@ if docker compose version >/dev/null 2>&1; then
     echo "Docker Compose is already installed."
 else
     echo "Installing Docker Compose..."
-    sudo apt install -y docker-compose-plugin
+    sudo apt update
+    sudo apt install -y docker-compose-plugin docker-compose
 fi
 
 
@@ -38,7 +39,7 @@ if python3 -m pip show django >/dev/null 2>&1; then
     echo "Django is already installed."
 else
     echo "Installing Django..."
-    python3 -m pip install django
+    python3 -m pip install --break-system-packages django
 fi
 
 echo "Installation completed!"
